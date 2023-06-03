@@ -10,7 +10,7 @@ namespace webapi.Intefaces
 
         Task<IEnumerable<CustomerDTO>> GetCustomersDTOAsync();
         Task<CustomerDTO> GetCustomerDTOByIdAsync(string id);
-        void UpdateCustomer(Customer customer);
+        void UpdateCustomer(Customer destCustomer, CustomerUpdateDTO customerUpdate);
         Task<bool> SaveAllAsync();
 
     }

@@ -55,9 +55,10 @@ namespace webapi.Data
             return await _context.SaveChangesAsync() > 0;
         }
 
-        public void UpdateCustomer(Customer customer)
+        public void UpdateCustomer(Customer destCustomer, CustomerUpdateDTO customerUpdate)
         {
-            _context.Entry(customer).State = EntityState.Modified;
+            _mapper.Map(customerUpdate, destCustomer.Address);
+            _context.Entry(destCustomer).State = EntityState.Modified;
         }
     }
 }

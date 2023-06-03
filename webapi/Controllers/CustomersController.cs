@@ -27,16 +27,29 @@ namespace API.Controllers
         }
         
         [HttpGet("{id}")] // GET: /api/customers/{id}
-        public async Task<ActionResult<CustomerDTO>> GetCustomer(string id)
+        public async Task<ActionResult<CustomerDTO>> GetCustomerById(string id)
         {
             var customer  = await _customerRepository.GetCustomerDTOByIdAsync(id);
             return Ok(customer);
         }
 
-        // [HttpPost("details")] // POST: /api/customers/details
-        // public async Task<ActionResult<CustomerDetails>> GetCustomerDetails(string id)
-        // {
-        //     return await _context.Addresses.FindAsync(id);
-        // }
+        [HttpPut("{id}")] // PUT: /api/customers/{id}
+        public async Task<ActionResult> PutCustomerAddressByCustomerId(string id, CustomerUpdateDTO updateAddress)
+        {
+            if (id != updateAddress.CustomerId)
+            {
+                return BadRequest();
+            }
+
+            var user = await _customerRepository.GetCustomerByIdAsync(id);
+
+            if (user == null) return NotFound();
+
+            _customerRepository.UpdateCustomer(user, updateAddress);
+
+            if (await _customerRepository.SaveAllAsync()) return NoContent();
+
+            return BadRequest("Failed to update user");
+        }
     }
 }
