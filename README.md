@@ -1,5 +1,6 @@
-Contracts App
+# Contracts App
 
+## Detailed Working Steps:
 1. Added webapi project, added Models folder.
 2. Made some changes to app's model.
 3. Created Entitiy Framework's code-first SQLite dbContext from Customer model. Added CustomerController
@@ -8,4 +9,8 @@ Contracts App
 6. Added fix for CustomerRepository's GetCustomerByIdAsync.
 7. Moved mappers to repository, updated customers.db to include contracts and packages. Added data to db.
 
+
+## WebApi Example URI:
+* https://localhost:8080/api/customers
+* https://localhost:8080/api/customers/17
 
