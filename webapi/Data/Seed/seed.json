@@ -1,0 +1,33 @@
+[
+    {
+        "id": "2",
+        "firstName": "Alice",
+        "lastName": "Levi",
+        "address": {
+            "city": "Tel Aviv",
+            "street": "Rokach",
+            "houseNumber": "54b",
+            "zip": null
+        },
+        "contracts": []
+    },
+    {
+        "id": "17",
+        "firstName": "Bob",
+        "lastName": "Cohen",
+        "address": {
+            "city": "Tel Aviv",
+            "street": "Rokach",
+            "houseNumber": "54b",
+            "zip": null
+        },
+        "contracts": []
+    },
+    {
+        "id": "71",
+        "firstName": "Clare",
+        "lastName": "Koren",
+        "address": null,
+        "contracts": []
+    }
+]

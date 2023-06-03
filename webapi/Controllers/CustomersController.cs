@@ -1,32 +1,46 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using webapi.Data;
+using webapi.DTO;
+using webapi.Intefaces;
 using webapi.Models;
 
 namespace API.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")] // GET /api/customers
+    [Route("api/[controller]")]
     public class CustomersController : ControllerBase
     {
-        private readonly DataContext _context;
-        public CustomersController(DataContext context)
+        private readonly ICustomerRepository _customerRepository;
+        private readonly IMapper _mapper;
+
+        public CustomersController(ICustomerRepository customerRepository, IMapper mapper)
         {
-            _context = context;
+            _customerRepository = customerRepository;
+            _mapper = mapper;
         }
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Customer>>> GetCustomers()
+        [HttpGet] // GET: /api/customers
+        public async Task<ActionResult<IEnumerable<CustomerDTO>>> GetCustomers()
         {
-            var customers = await _context.Customers.ToListAsync();
-
-            return customers;
+            var customers  = await _customerRepository.GetCustomersAsync();
+            var customersToReturns =  _mapper.Map<IEnumerable<CustomerDTO>>(customers);
+            return Ok(customersToReturns);
         }
         
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Customer>> GetCustomer(string id)
+        [HttpGet("{id}")] // GET: /api/customers/{id}
+        public async Task<ActionResult<CustomerDTO>> GetCustomer(string id)
         {
-            return await _context.Customers.FindAsync(id);
+            var customer = await _customerRepository.GetCustomerByIdAsync(id);
+            var customerToReturns =  _mapper.Map<CustomerDTO>(customer);
+            return Ok(customerToReturns);
         }
+
+        // [HttpPost("details")] // POST: /api/customers/details
+        // public async Task<ActionResult<CustomerDetails>> GetCustomerDetails(string id)
+        // {
+        //     return await _context.Addresses.FindAsync(id);
+        // }
     }
 }
