@@ -10,6 +10,7 @@ namespace webapi.Helpers
         {
             CreateMap<Customer, CustomerDTO>();
             CreateMap<Address, AddressDTO>();
+            CreateMap<Contract, ContractDTO>();
         }
     }
 }

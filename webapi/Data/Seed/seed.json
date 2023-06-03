@@ -1,20 +1,55 @@
 [
     {
-        "id": "2",
-        "firstName": "Alice",
-        "lastName": "Levi",
+        "id": "17",
+        "firstName": "Bob",
+        "lastName": "Cohen",
         "address": {
             "city": "Tel Aviv",
             "street": "Rokach",
             "houseNumber": "54b",
             "zip": null
         },
-        "contracts": []
+        "contracts": [
+            {
+                "id": 1,
+                "name": "First",
+                "type": "Advanced",
+                "packages": [
+                    {
+                        "id": 1,
+                        "type": "Small",
+                        "name": "Package1",
+                        "amount": 50,
+                        "used": 0,
+                        "contractId": 1,
+                        "contract": null
+                    },
+                    {
+                        "id": 2,
+                        "type": "Medium",
+                        "name": "Package2",
+                        "amount": 30,
+                        "used": 0,
+                        "contractId": 1,
+                        "contract": null
+                    },
+                    {
+                        "id": 3,
+                        "type": "Small",
+                        "name": "Package3",
+                        "amount": 30,
+                        "used": 0,
+                        "contractId": 1,
+                        "contract": null
+                    }
+                ]
+            }
+        ]
     },
     {
-        "id": "17",
-        "firstName": "Bob",
-        "lastName": "Cohen",
+        "id": "2",
+        "firstName": "Alice",
+        "lastName": "Levi",
         "address": {
             "city": "Tel Aviv",
             "street": "Rokach",

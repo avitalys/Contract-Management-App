@@ -12,7 +12,6 @@ namespace webapi.Models
         [Required]
         public string LastName { get; set; }
         public Address? Address { get; set; } 
-        [NotMapped]
         public List<Contract>? Contracts { get; set; }
 
         public Customer(string id, string firstName, string lastName)

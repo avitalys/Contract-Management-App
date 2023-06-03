@@ -1,23 +1,20 @@
 
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using webapi.Enums;
 
 namespace webapi.Models
 {
+    [Table("Contracts")]
     public class Contract
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         [Required]
         public string Name { get; set; }
-        [Required]
-        public ContractType Type { get; set; }
+        public virtual ContractType Type { get; set; }
         public List<Package>? Packages { get; set; }
 
-        public Contract(string id, string name, ContractType type = ContractType.Visitor)
-        {
-            Id = id;
-            Name = name;
-            Type = type;
-        }
+        public string CustomerId { get; set; }
+        public Customer Customer { get; set; }
     }
 }
