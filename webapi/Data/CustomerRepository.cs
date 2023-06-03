@@ -18,7 +18,9 @@ namespace webapi.Data
 
         public async Task<Customer> GetCustomerByIdAsync(string id)
         {
-            return await _context.Customers.FindAsync(id);
+            return await _context.Customers
+                .Include(cust => cust.Address)
+                .SingleOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<IEnumerable<Customer>> GetCustomersAsync()
