@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace webapi.Models
 {
     public class Customer
@@ -9,8 +11,16 @@ namespace webapi.Models
         public string FirstName { get; set; }
         [Required]
         public string LastName { get; set; }
+        [NotMapped]
         public Address? Address { get; set; }
+        [NotMapped]
         public List<Contract>? Contracts { get; set; }
 
+        public Customer(string id, string firstName, string lastName)
+        {
+            Id = id;
+            FirstName = firstName;
+            LastName = lastName;
+        }
     }
 }
