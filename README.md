@@ -9,9 +9,19 @@
 6. Added fix for CustomerRepository's GetCustomerByIdAsync.
 7. Moved mappers to repository, updated customers.db to include contracts and packages. Added data to db.
 8. Added HTTP PUT method for address update by customer id. 
+9. Added LoginController and LoginDTO, which on authentication create JWT Token and returns it. In Program.cs add a middleware to validate the token. Added Authorize attribute to CustomerController's PUT method.
+
+## Commands For Running:
+* For webapi:
+`> dotnet build `
+`> dotnet run -lp https`
 
 
 ## WebApi Example URI:
+* POST: https://localhost:8080/api/login
 * GET: https://localhost:8080/api/customers
 * GET: https://localhost:8080/api/customers/17
+* PUT: https://localhost:8080/api/customers/17
 
+### JWT Bearer (with Authorization header)
+* https://jwt.ms/ to decode JWT

@@ -1,4 +1,5 @@
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using webapi.Data;
@@ -6,7 +7,7 @@ using webapi.DTO;
 using webapi.Intefaces;
 using webapi.Models;
 
-namespace API.Controllers
+namespace webapi.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
@@ -34,6 +35,7 @@ namespace API.Controllers
         }
 
         [HttpPut("{id}")] // PUT: /api/customers/{id}
+        [Authorize]
         public async Task<ActionResult> PutCustomerAddressByCustomerId(string id, CustomerUpdateDTO updateAddress)
         {
             if (id != updateAddress.CustomerId)
