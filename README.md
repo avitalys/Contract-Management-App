@@ -10,11 +10,19 @@
 7. Moved mappers to repository, updated customers.db to include contracts and packages. Added data to db.
 8. Added HTTP PUT method for address update by customer id. 
 9. Added LoginController and LoginDTO, which on authentication creates JWT Token and returns it. In Program.cs added a middleware to validate the token. Added Authorize attribute to CustomerController's PUT method.
+10. Added an Angualr app's client side, setup steps:
+`npm install -g @angular/cli@14`
+`ng new client`
+
 
 ## Commands For Running:
 * For webapi:
 build with - `dotnet build `
 build and run HTTPS with - `dotnet run -lp https`
+
+* For Angular client:
+build and run: `ng serve`
+
 
 
 ## WebApi Example URI:
