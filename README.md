@@ -13,6 +13,8 @@
 10. Added an Angualr app's client side, setup steps:
 `npm install -g @angular/cli@14`
 `ng new client`
+11. Created new angular app components: 'login-form' and 'nav', with cli: `ng g c loginForm --skip-tests`
+12. Created new angular service for login. with POST request to /api/login, with cli: `ng g s _services/login --skip-test`
 
 
 ## Commands For Running:
