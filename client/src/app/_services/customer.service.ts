@@ -5,6 +5,7 @@ import { LoginService } from './login.service';
 import { Customer } from '../_models/customer';
 import { User } from '../_models/user';
 import { take, map, BehaviorSubject } from 'rxjs';
+import { Address } from '../_models/address';
 
 @Injectable({
   providedIn: 'root'
@@ -51,4 +52,7 @@ export class CustomerService {
     this.customersSource.next(null);
   }
 
+  putCustomerAddress(user: User, newAddress: Address) {
+    return this.http.put<Customer>(this.baseUrl + 'customers/' + user.id, newAddress);
+  }
 }

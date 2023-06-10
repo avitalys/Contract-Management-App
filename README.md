@@ -16,6 +16,8 @@
 11. Created new angular app components: 'login-form' and 'nav', with cli: `ng g c loginForm --skip-tests`
 12. Created new angular service for login. with POST request to /api/login, with cli: `ng g s _services/login --skip-test`
 13. Persist loggedin user in localStorage and expose as observable.
+14. Added Customer details component, showing address and list of contracts cards, and button for edit address.
+15. Added jwt.interceptor for setting Authorization Header with jwt.
 
 
 ## Commands For Running:

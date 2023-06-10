@@ -6,13 +6,14 @@
                     <strong>Customer:</strong>
                     <p>{{customer?.firstName}}, {{customer?.lastName}}</p>
                 </div>
-                <app-address-card *ngIf="customer?.address" [customerDetailsAddress]="customer?.address"></app-address-card>
-                
+                <div class="card col-6 d-block">
+                    <app-address-card *ngIf="customer?.address" [customerDetailsAddress]="customer?.address" class="d-inline-block col-6 m-3"></app-address-card>
+                    <button class="btn btn-outline-primary d-inline-block m-3">Update Address</button>
                 <div>
                     <strong>Customer's Contracts:</strong>
                     <ul >
                         <li *ngFor="let contract of customer?.contracts">
-                            <div class="card  col-4">
+                            <div class="card">
                                 <div class="card-body">
                                     {{contract.id}} -
                                     <strong> Contract: </strong> {{contract.name}}
