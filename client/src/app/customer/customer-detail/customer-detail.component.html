@@ -1,0 +1,38 @@
+<div class="row">
+        <div class="card">
+            
+            <div class="card-body">
+                <div>
+                    <strong>Customer:</strong>
+                    <p>{{customer?.firstName}}, {{customer?.lastName}}</p>
+                </div>
+                <app-address-card *ngIf="customer?.address" [customerDetailsAddress]="customer?.address"></app-address-card>
+                
+                <div>
+                    <strong>Customer's Contracts:</strong>
+                    <ul >
+                        <li *ngFor="let contract of customer?.contracts">
+                            <div class="card  col-4">
+                                <div class="card-body">
+                                    {{contract.id}} -
+                                    <strong> Contract: </strong> {{contract.name}}
+                                    <strong> of type: </strong> {{contract.type}} 
+                                </div>
+                                <div class="card-footer">
+                                    <div class="btn-group d-flex">
+                                        <button class="btn btn-primary">Show Packages</button>
+                                    </div>
+                                </div>
+                            </div>
+                          </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-footer">
+                <strong>Customer's Packages:</strong>
+            </div>
+        </div>
+
+
+
+</div>

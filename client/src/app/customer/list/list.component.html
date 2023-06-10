@@ -1,0 +1,10 @@
+<div class="container col-4">
+    <h4>Showing Customers List:</h4>
+    <ul *ngIf="(customerService.customers$ | async)">
+      <li *ngFor="let cust of customers">
+        {{cust.id}} -
+        {{cust.firstName}} 
+        {{cust.lastName}}
+      </li>
+    </ul>
+</div>

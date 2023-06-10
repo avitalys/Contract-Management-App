@@ -1,0 +1,12 @@
+<div class="container">
+
+    <div *ngIf="!(loginService.loggedinUser$ | async)" class="container col-4">
+        <app-login-form></app-login-form> 
+      </div>
+      
+      <div *ngIf="loginService.loggedinUser$ | async" class="container">
+        <app-customer-detail></app-customer-detail>
+      </div>
+
+</div>
+
