@@ -1,19 +1,17 @@
 <app-nav></app-nav>
-<h1>{{title}}</h1>
 
-<h2>{{subTitle}}</h2>
-
-
-<div class="container col-4">
+<div *ngIf="!(loginService.loggedinUser$ | async)" class="container col-4">
   <app-login-form></app-login-form> 
 </div>
 
-<!-- 
-<h4>Customers List:</h4>
-<ul>
-  <li *ngFor="let cust of customers">
-    {{cust.id}} -
-    {{cust.firstName}} 
-    {{cust.lastName}}
-  </li>
-</ul> -->
+<div *ngIf="loginService.loggedinUser$ | async" class="container col-4">
+  <h2>{{subTitle}}</h2>
+  <h4>Showing Customers List:</h4>
+  <ul>
+    <li *ngFor="let cust of customers">
+      {{cust.id}} -
+      {{cust.firstName}} 
+      {{cust.lastName}}
+    </li>
+  </ul>
+</div>

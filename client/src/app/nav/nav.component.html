@@ -2,7 +2,7 @@
     <div class="container">
         <a class="navbar-brand" href="#">Contract Management App</a>
 
-        <ul *ngIf="loggedIn" class="navbar-nav me-auto mb-2 mb-md-0" >
+        <ul *ngIf="loginService.loggedinUser$ | async" class="navbar-nav me-auto mb-2 mb-md-0" >
             <li class="nav-item">
                 <a class="nav-link"href="#">Customers</a>
             </li>
@@ -14,6 +14,6 @@
             </li>
         </ul>
 
-        <a class="btn btn-outline-success" (click)="logout()">Logout</a>
+        <a *ngIf="loginService.loggedinUser$ | async" class="btn btn-outline-success" (click)="logout()">Logout</a>
     </div>
 </nav>
