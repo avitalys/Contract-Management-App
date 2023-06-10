@@ -11,20 +11,20 @@
 8. Added HTTP PUT method for address update by customer id. 
 9. Added LoginController and LoginDTO, which on authentication creates JWT Token and returns it. In Program.cs added a middleware to validate the token. Added Authorize attribute to CustomerController's PUT method.
 10. Added an Angualr app's client side, setup steps:
-`npm install -g @angular/cli@14`
-`ng new client`
+* `npm install -g @angular/cli@14`
+* `ng new client`
 11. Created new angular app components: 'login-form' and 'nav', with cli: `ng g c loginForm --skip-tests`
 12. Created new angular service for login. with POST request to /api/login, with cli: `ng g s _services/login --skip-test`
 13. Persist loggedin user in localStorage and expose as observable.
 
 
 ## Commands For Running:
-* For webapi:
-build with - `dotnet build `
-build and run HTTPS with - `dotnet run -lp https`
+### For webapi:
+* build with - `dotnet build `
+* build and run HTTPS with - `dotnet run -lp https`
 
-* For Angular client:
-build and run: `ng serve`
+### For Angular client:
+* build and run: `ng serve`
 
 
 
