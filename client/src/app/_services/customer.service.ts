@@ -53,6 +53,6 @@ export class CustomerService {
   }
 
   putCustomerAddress(user: User, newAddress: Address) {
-    return this.http.put<Customer>(this.baseUrl + 'customers/' + user.id, newAddress);
+    return this.http.put(this.baseUrl + 'customers/' + user.id, {...newAddress, CustomerId: user.id});
   }
 }

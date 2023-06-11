@@ -1,1 +1,22 @@
-<p>address-edit works!</p>
+<form #f="ngForm"  (ngSubmit)="onSubmit()" autocomplete="off">
+    <h2>Address</h2>
+    <div formGroupName="address">
+        
+        
+        <label for="street">Street: </label>
+        <input id="street" type="text" [(ngModel)]="addressModel.street"  name="street">
+        
+        <label for="city">City: </label>
+        <input id="city" type="text" [(ngModel)]="addressModel.city" name="city" >
+        
+        <label for="houseNumber">houseNumber: </label>
+        <input id="houseNumber" type="text" [(ngModel)]="addressModel.houseNumber" name="houseNumber" >
+        
+        <label for="zip">Zip Code: </label>
+        <input id="zip" type="text" [(ngModel)]="addressModel.zip" name="zip" >
+    </div>
+
+    <div class="text-center">
+        <button class="btn btn-primary me-2" type="submit">Update</button>
+    </div>
+</form>
