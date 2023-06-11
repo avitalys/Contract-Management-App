@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { take } from 'rxjs';
 import { Address } from 'src/app/_models/address';
@@ -13,6 +13,8 @@ import { LoginService } from 'src/app/_services/login.service';
 })
 export class AddressEditComponent implements OnInit {
   @Input() customerDetailsAddress?: Address;
+  @Output() successCallback = new EventEmitter();
+
   user: User | null = null;
   
   addressModel : Address = {};
@@ -30,13 +32,14 @@ export class AddressEditComponent implements OnInit {
     if (this.addressModel && this.user) {
       console.log(this.user);
       this.customerService.putCustomerAddress(this.user, this.addressModel).subscribe({
-        next: response => {
-          console.log(response);
-        },
+        next: () => this.onSuccess(this.addressModel),
         error: error => console.log(error),
         complete: () => console.log("address update completed")
       });
     }
-    
+  }
+
+  onSuccess(address: Address) {
+    this.successCallback.emit(address);
   }
 }

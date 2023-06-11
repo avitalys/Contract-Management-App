@@ -7,25 +7,31 @@
                     <p>{{customer?.firstName}}, {{customer?.lastName}}</p>
                 </div>
                 <div class="card col-6 d-block">
-                    <app-address-card *ngIf="customer?.address" [customerDetailsAddress]="customer?.address" class="d-inline-block col-6 m-3"></app-address-card>
-                    <button class="btn btn-outline-primary d-inline-block m-3">Update Address</button>
-                <div>
+                    <div *ngIf="!editMode">
+                        <app-address-card *ngIf="customer?.address" [customerDetailsAddress]="customer?.address" class="d-inline-block col-6 m-3"></app-address-card>
+                        <button class="btn btn-outline-primary d-inline-block m-3" (click)="toggleEditMode()">Update Address</button>
+                    </div>
+                    <div *ngIf="editMode">
+                        <app-address-edit [customerDetailsAddress]="customer?.address" (successCallback)="handleSuccessEdit($event)" class="d-inline-block col-6 m-3"></app-address-edit>
+                        <button class="btn btn-outline-primary d-inline-block m-3" (click)="toggleEditMode()">Cancel</button>
+                    </div>
+                     <div>
                     <strong>Customer's Contracts:</strong>
                     <ul >
                         <li *ngFor="let contract of customer?.contracts">
                             <div class="card">
-                                <div class="card-body">
-                                    {{contract.id}} -
-                                    <strong> Contract: </strong> {{contract.name}}
-                                    <strong> of type: </strong> {{contract.type}} 
-                                </div>
-                                <div class="card-footer">
-                                    <div class="btn-group d-flex">
-                                        <button class="btn btn-primary">Show Packages</button>
+                                <div class="card-body row justify-content-between">
+                                    <div >
+                                        {{contract.id}} -
+                                        <strong> Contract: </strong> {{contract.name}}
+                                        <strong> of type: </strong> {{contract.type}}
+                                    </div>
+                                    <div class="align-self-end">
+                                        <button class="btn btn-primary">Show Packages</button> 
                                     </div>
                                 </div>
                             </div>
-                          </li>
+                        </li>
                     </ul>
                 </div>
             </div>
