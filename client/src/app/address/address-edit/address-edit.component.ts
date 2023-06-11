@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
 import { take } from 'rxjs';
 import { Address } from 'src/app/_models/address';
 import { User } from 'src/app/_models/user';
@@ -26,6 +25,8 @@ export class AddressEditComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (this.customerDetailsAddress)
+      this.addressModel = this.customerDetailsAddress;
   }
 
   onSubmit() {
